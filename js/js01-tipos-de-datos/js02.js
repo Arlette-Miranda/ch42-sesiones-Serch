@@ -109,3 +109,114 @@ const calcularImpuesto = (a,b) => a * b ;
 
 // Caso de uso
 console.log( `El impuesto de los calcetines es: ${calcularImpuesto(70.50, .16 ) }`)
+
+////////////////////////
+// ==================================================================
+// Ejercicios: Convertir las siguientes funciones a Arrow functions.
+
+/** Función 1: Sumar dos números */
+/*function sumar(a, b) {
+    return a + b;
+}*/
+const sumar = (a,b) => a + b;
+
+console.log( `La suma de 100 + 5 = ${sumar(100,5)}`); // 105
+
+/** Función 2: Verificar si un número es par */
+/*function esPar(num) {
+    return num % 2 === 0;
+}*/
+const esPar = num => num % 2 === 0;
+
+console.log( `El número 18 es par? ${esPar(18)}`); // true
+console.log( `El número 23 es par? ${esPar(23)}`); // false
+
+/** Función 3: Verificar si tres números terminan con el mismo dígito */
+/* function mismosUltimosDigitos(num1, num2, num3) {
+    const ultimoDigito1 = num1 % 10;
+    const ultimoDigito2 = num2 % 10;
+    const ultimoDigito3 = num3 % 10;
+    return ultimoDigito1 === ultimoDigito2 && ultimoDigito1 === ultimoDigito3;
+} */
+const mismosUltimosDigitos = (num1, num2, num3) =>{
+    const ultimoDigito1 = num1 % 10; // 3
+    const ultimoDigito2 = num2 % 10; // 3
+    const ultimoDigito3 = num3 % 10; // 3
+    return ultimoDigito1 === ultimoDigito2 && ultimoDigito1 === ultimoDigito3;
+};
+
+/// Otra opción
+const mismosUltimosDigitos1 = (num1, num2, num3) =>
+     (num1 % 10) === (num2 % 10) && (num1 % 10) === (num3 % 10); // 3
+
+console.log(`El num. 23, 203 y 1013 terminan en 3? ${mismosUltimosDigitos(23,203,1013)}`);
+console.log(`El num. 23, 203 y 1013 terminan en 3? ${mismosUltimosDigitos1(23,203,1013)}`);
+
+// =============================================================
+/*
+ ------------ Funciones de Callback -----------------------
+ Es una función(definida, expresada, arrow, anónima) que se pasa 
+ a otra función como argumento.
+ Se pasa en el argumento como referencia ( sin parentesis).
+ */
+ // Hacer con arrow function una función que reciba un texto e imprima en consola
+
+ const printToConsole = (texto) =>
+    console.log(texto);
+ 
+ // Hacer con arrow function una función que reciba un texto e imprima en alert
+
+ const printToAlert = (texto) =>
+    alert(texto);
+
+ printToConsole("HOLA")
+ printToAlert("Adiós")
+
+ const printToH1 = (texto) =>
+    document.getElementById("app-title").innerHTML = texto;
+
+ // Realizar una función(arrow function) que reciba un texto
+// y que pueda imprimir en consola, alert y quiza en el futuro
+// se agregue otra salida para imprimir.
+
+
+//// Opción 1
+const printMessage = (text, optionToPrint) => {
+    if (optionToPrint === "console"){
+        printToConsole(text);
+    } else if (optionToPrint === "alert") {
+        printToAlert(text);
+    } else if (optionToPrint === "h1") {
+        printToH1(text);
+    } else{
+        console.error("Opción no registrada")
+    }
+};
+printMessage("Ya es martes","console")
+printMessage("Vámonos","alert")
+printMessage("Hola amigas","h1")
+
+/// Opción 2
+/*
+    switch: Es una alternativa a if-else. Permite ejecutar
+    diferentes bloques de código basándose en el valor de una expresión
+   */
+    const printMessage1 = (text, optionToPrint ) =>{
+        switch( optionToPrint ) {
+            case "console":
+                printToConsole( text);
+                break;
+            case "alert":
+                printToAlert(text);
+                break;
+            case "h1":
+                printToH1(text);
+                break;
+            default:
+                console.error("Opción incorrecta");
+        }
+    };
+
+printMessage1("mmmm","console")
+printMessage1("Ya merito?","alert")
+printMessage1("Hola bros","h1")
