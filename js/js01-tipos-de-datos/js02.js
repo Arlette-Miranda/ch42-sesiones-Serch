@@ -220,3 +220,38 @@ printMessage("Hola amigas","h1")
 printMessage1("mmmm","console")
 printMessage1("Ya merito?","alert")
 printMessage1("Hola bros","h1")
+
+//// 
+const printMessageUsingCallback = (text, functionToPrint) => 
+    functionToPrint (text);
+
+//printMessageUsingCallback("Cualquiera puede cocinar" , 18 ); 
+// functionToPrint is not a function
+
+printMessageUsingCallback("Cualquiera puede cocinar" , printToConsole ); 
+printMessageUsingCallback("Cualquiera puede cocinar" , printToH1 ); 
+
+
+// ejercicio
+// Crear una función que modifique "logo-title" con un nuevo mensaje.
+// Usar printMessageUsingCallback para pasarle la nueva función, con el mensaje:
+// "Ratatuil"
+
+const printToTitle = (texto) =>
+     document.getElementById("logo-title").innerHTML = texto;
+
+printMessageUsingCallback("Ratatuil" , printToTitle); 
+
+// Ejercicio.  Cambiar las iágenes de pitufina a Remy
+// Todo: Cambiar el nombre del archivo
+// Todo: usar la propiedad src
+// Todo: crear la función que cabie la imagen
+// done: agregar IDS a las imagenes
+
+const changeImage = ( imageID, imagePath) => 
+    document.getElementById( imageID ).src = imagePath ;
+
+changeImage( "img1", "./public/img/remy01.jpg" );
+changeImage( "img2", "./public/img/remy02.jpg" );
+changeImage( "img3", "./public/img/remy03.jpg" );
+changeImage( "img4", "./public/img/remy04.jpg" );
